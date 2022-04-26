@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+<!-- This tag will allow IOC container to search all the packages and sub packages for the annotations -->
+	<context:component-scan base-package="com.springcore.stereotype"/>
+	
+<!-- Now we don't have to declare beans in the XML file  -->
+<util:list list-class="java.util.LinkedList" id="phones">
+	<value>9790790797</value>
+	<value>97349037495</value>
+	<value>904387890234</value>
+	<value>054968304</value>
+</util:list>
+
+<!--  This is how we change the scope of the Bean in the XML file -->
+<bean class="com.springcore.stereotype.Teacher" name="teacher" scope="prototype" />
+
+
+</beans>

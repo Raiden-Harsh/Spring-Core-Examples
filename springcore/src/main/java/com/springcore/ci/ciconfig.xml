@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- Now we use beans to tell the IOC about the classes whose objects life 
+		cycle will be maintained by the IOC itself The complete class name would 
+		be like packageName.className The name field will give a name to the bean 
+		which then will be used to access the respective class (Bean is just a Java 
+		class whose object complete life cycle is maintained bye the IOC) Property 
+		name tag is used to tell the attribute of the class whose value is to be 
+		set -->
+
+	
+	<bean class="com.springcore.ci.Certi" name="certi">
+		<constructor-arg value="Autodesk fusion 360"/>
+	</bean>
+	<bean class="com.springcore.ci.Person" name="person">
+		<constructor-arg value="Harsh Vardhan Sharma"/>
+		<!-- Type is used to resolve ambiguity in the constructor overloading -->
+		<constructor-arg value="3124213" type="int"/>	
+		<constructor-arg ref="certi"/>	
+	</bean>
+	<bean class="com.springcore.ci.Addition" name="add">
+		<constructor-arg value="12" type="int" index="1"/>
+		<constructor-arg value="34" type="int" index="0"/>
+	</bean>
+	
+	
+
+</beans>

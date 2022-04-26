@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- Now we use beans to tell the IOC about the classes whose objects life 
+		cycle will be maintained by the IOC itself The complete class name would 
+		be like packageName.className The name field will give a name to the bean 
+		which then will be used to access the respective class (Bean is just a Java 
+		class whose object complete life cycle is maintained bye the IOC) Property 
+		name tag is used to tell the attribute of the class whose value is to be 
+		set -->
+
+	<bean class="com.springcore.collections.Emp" name="emp">
+		<property name="name" value="Radhe" />
+		<!-- This is how we inject list -->
+		<property name="phones">
+			<list>
+				<value>34523452345</value>
+				<value>342523456</value>
+				<value>7987899098</value>
+				<value>9854092345</value>
+				<!-- we can add a NULL value with <null/> -->
+			</list>
+		</property>
+		<property name="addresses">
+		<!-- This is how we inject a set 
+		the difference between a list and set is just that a set does't have duplicate values -->
+			<set>
+				<value>Delhi</value>
+				<value>Pune</value>
+				<value>Lucknow</value>
+				<value>Bareilly</value>
+			</set>
+		</property>
+		<property name="courses">
+		<!-- This is how we inject the Maps(they are like dictionaries in python) -->
+			<map>
+				<entry key="java" value="2 months"/>
+				<entry key="python" value="1 month"/>
+				<entry key="c++" value="1.5 months"/>
+			</map>
+		</property>
+	</bean>
+
+
+
+</beans>

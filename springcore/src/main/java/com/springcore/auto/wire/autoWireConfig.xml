@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- Now we use beans to tell the IOC about the classes whose objects life 
+		cycle will be maintained by the IOC itself The complete class name would 
+		be like packageName.className The name field will give a name to the bean 
+		which then will be used to access the respective class (Bean is just a Java 
+		class whose object complete life cycle is maintained bye the IOC) Property 
+		name tag is used to tell the attribute of the class whose value is to be 
+		set -->
+
+	<bean class="com.springcore.auto.wire.Address" name="address">
+		<property name="street" value="Prem Nager"/>
+		<property name="city" value="Bareilly" />
+	</bean>
+	
+	<!-- Autowire "byName" will look the attribute of the declaring bean and it will try to find the name of any other 
+		 Bean which is same as the name of the variable that is accepting the reference
+		 In this example the Employee class is dependent on the Address class as it requires an address object to work 
+		 so instead of passing it the object manually we are using autowire 
+		 and autowire byName will only work when the name of the variable that is required in the Employee class which is address
+		 is same as the name of bean declared in the XML file 
+		 if same name is not present then it will throw an error-->
+		 
+		 <!--  byType : this autowire will search for the type of the object to be injected irrespective of the name :uses setter methods -->
+		 <!--  autowire="constructor will call the parameterized constructor to set the parameters" -->
+	<bean class="com.springcore.auto.wire.Employee" name="emp1" autowire="byName" />
+	
+	 
+
+
+</beans>

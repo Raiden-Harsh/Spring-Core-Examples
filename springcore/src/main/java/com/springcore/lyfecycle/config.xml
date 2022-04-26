@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- We are using this tag so that all the annotations will be enabled (as by default they are disabled) -->
+	<context:annotation-config />
+
+	<!-- Now we use beans to tell the IOC about the classes whose objects life 
+		cycle will be maintained by the IOC itself The complete class name would 
+		be like packageName.className The name field will give a name to the bean 
+		which then will be used to access the respective class (Bean is just a Java 
+		class whose object complete life cycle is maintained bye the IOC) Property 
+		name tag is used to tell the attribute of the class whose value is to be 
+		set -->
+
+	<!-- If we don't specify the init and destroy method while declaring the 
+		bean it will not get executed only requirement for the init and destroy method 
+		is they should be public void and have no arguments -->
+	<bean class="com.springcore.lyfecycle.Samosa" name="s1"
+		init-method="init" destroy-method="destroy">
+		<property name="price" value="10" />
+	</bean>
+	<!-- New Bean Pepsi Now we will use interfaces to call the init and destroy 
+		methods -->
+	<bean class="com.springcore.lyfecycle.Pepsi" name="p1">
+		<property name="price" value="25" />
+	</bean>
+	<!-- New Bean Fries to use @Notations for using the init and destroy functionalities -->
+	<bean class="com.springcore.lyfecycle.Fries" name="f1">
+		<property name="brand" value="McDonlads" />
+	</bean>
+
+</beans>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- This tag will enable all the annotations in the classes  -->
+<context:annotation-config/>
+
+	<!-- Now we use beans to tell the IOC about the classes whose objects life 
+		cycle will be maintained by the IOC itself The complete class name would 
+		be like packageName.className The name field will give a name to the bean 
+		which then will be used to access the respective class (Bean is just a Java 
+		class whose object complete life cycle is maintained bye the IOC) Property 
+		name tag is used to tell the attribute of the class whose value is to be 
+		set -->
+<!-- no bounds  of having the same name as in the autowire="byName"  -->
+	<bean class="com.springcore.auto.wire.annotation.Address" name="address">
+		<property name="street" value="Prem Nager"/>
+		<property name="city" value="Bareilly" />
+	</bean>
+	<bean class="com.springcore.auto.wire.annotation.Address" name="address2">
+		<property name="street" value="jhumri taliyaa ka ganda naala"/>
+		<property name="city" value="jhakkarkatti" />
+	</bean>
+	<!-- While using @Autowire we don't have to declare any extra thing in the XML file 
+		we just need to enable annotations in the XML file -->
+	
+	<bean class="com.springcore.auto.wire.annotation.Employee" name="emp1"  />
+	
+	 
+
+
+</beans>
